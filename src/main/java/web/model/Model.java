@@ -2,8 +2,10 @@ package web.model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 import web.entity.Employee;
 
@@ -42,6 +44,41 @@ public class Model {
 			closeCon();
 		}
 		
+		
+	}
+	
+	public ResultSet getAll(){
+		
+		try {
+			stm=con.createStatement();
+			ResultSet result = stm.executeQuery("select * from employee");
+			connection();
+			return result;
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			connection();
+			return null;
+		}
+		
+		
+	}
+	
+	public boolean deleteData(int id) {
+		try {
+			stm=con.createStatement();
+			stm.executeUpdate("delete from employee where id='"+id+"'");
+			
+			closeCon();
+			return true;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			closeCon();
+			return false;
+		}
 		
 	}
 	

@@ -48,7 +48,8 @@ public class reg extends HttpServlet {
 		boolean status = model.addDetails(employee);
 		
 		if(status) {
-			request.setAttribute("status", "Details Added Successfully");
+			
+			request.setAttribute("status", "Details added successfully");
 			RequestDispatcher rd = request.getRequestDispatcher("registration.jsp");
 			rd.forward(request, response);	
 		}else {
