@@ -13,5 +13,11 @@
 <button type="submit">Save</button>
 </form>
 
+<%
+	if(request.getAttribute("name")!=null){
+		out.print(request.getAttribute("name"));
+	}
+%>
+
 </body>
 </html>

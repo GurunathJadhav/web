@@ -1,6 +1,8 @@
 package web.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,7 +28,11 @@ public class reg extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String name = request.getParameter("name");
-		System.out.println(name);
+//		System.out.println(name);
+		
+		request.setAttribute("name", name);
+		RequestDispatcher rd = request.getRequestDispatcher("webapp/registration.jsp");
+		rd.forward(request, response);
 	}
 
 }
