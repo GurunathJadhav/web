@@ -31,7 +31,7 @@ public class reg extends HttpServlet {
 //		System.out.println(name);
 		
 		request.setAttribute("name", name);
-		RequestDispatcher rd = request.getRequestDispatcher("webapp/registration.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/webapp/registration.jsp");
 		rd.forward(request, response);
 	}
 
